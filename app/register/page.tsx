@@ -18,6 +18,7 @@ export default function Register() {
       })
 
       if (response.ok) {
+        alert('Account Registered Successfully');
         router.push("/login")
       } else {
         const errorData = await response.json()

@@ -14,7 +14,7 @@ export async function GET(req: Request) {
     await dbConnect()
 
     const transactions = await Transaction.find({
-      $or: [{ sender: session.user.id }, { recipient: session.user.id }],
+      $or: [{ sender: session.user._id }, { recipient: session.user._id }],
     })
       .sort({ timestamp: -1 })
       .limit(10)
